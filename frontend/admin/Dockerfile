@@ -1,11 +1,13 @@
-FROM node:lts
+FROM node:lts-alpine
 WORKDIR /frontend/
 
-COPY ../../frontend .
+RUN apk update && apk add --no-cache npm
 
-RUN apt update && apt install -y 
-RUN npm i
+COPY ../package*.json ./
+RUN npm ci --omit=dev
+
+COPY .. .
 RUN npm run build
-EXPOSE 6969
 
-CMD [ "npm serve -s build" ] 
+EXPOSE 6969
+CMD [ "npx", "serve", "-s", "build", "-l", "6969" ]
