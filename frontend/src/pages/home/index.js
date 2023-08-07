@@ -46,9 +46,9 @@ export const HomePage = () => {
 				name="Support"
 				main_icon={<SupportAgentIcon color="success"/>}
 				items={[
-					{ label: "Administators", icon: <AssignmentIcon color="success"/>, link: "" },
-					{ label: "Tech Specs", icon: <BuildIcon color="success"/>, link: "" },
-					{ label: "Other", icon: <div />, link: "" }
+					{ label: "Administators", icon: <AssignmentIcon color="success"/>, link: "/support" },
+					{ label: "Tech Specs", icon: <BuildIcon color="success"/>, link: "/support" },
+					{ label: "Other", icon: <div />, link: "/support" }
 				]}
 			/>
 		</List>
