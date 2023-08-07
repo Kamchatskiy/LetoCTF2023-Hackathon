@@ -1,0 +1,56 @@
+server:
+  port: 8000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: actuator-user
+          uri: lb://user
+          predicates:
+            - Path=/actuator/user/**
+
+        - id: actuator-challenge
+          uri: lb://challenge
+          predicates:
+            - Path=/actuator/challenge/**
+
+        - id: actuator-event
+          uri: lb://event
+          predicates:
+            - Path=/actuator/event/**
+
+        - id: team
+          uri: lb://user
+          predicates:
+            - Path=/api/v1/team/**
+
+        - id: user
+          uri: lb://user
+          predicates:
+            - Path=/api/v1/user/**
+
+        - id: award
+          uri: lb://challenge
+          predicates:
+            - Path=/api/v1/award/**
+
+        - id: challenge
+          uri: lb://challenge
+          predicates:
+            - Path=/api/v1/challenge/**
+
+        - id: submit
+          uri: lb://challenge
+          predicates:
+            - Path=/api/v1/score/**
+
+        - id: event
+          uri: lb://event
+          predicates:
+            - Path=/api/v1/event/**
+
+        - id: broadcast
+          uri: lb://broadcast
+          predicates:
+            - Path=/api/v1/broadcast/**

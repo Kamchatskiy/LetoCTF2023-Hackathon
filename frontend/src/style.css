@@ -1,0 +1,6 @@
+body {
+    background-color: #1e1e1e;
+    background-image: url("background.svg");
+    color: hsl(169, 63%, 55%);
+    margin: 0;
+};
