@@ -12,18 +12,25 @@ export const UserRating = () => {
 	const [users, setUsers] = useState([])
 
 	useEffect(() => {
-		fetch("/api/users")
-			.then((response) => response.json())
-			.then((data) => setUsers(data))
-			.catch((error) => console.log(error))
+		fetchUsers()
 	}, [])
+
+	const fetchUsers = async () => {
+		try {
+			const response = await fetch("/api/users")
+			if (!response.ok) {
+				throw new Error("Failed to fetch users")
+			}
+			const data = await response.json()
+			setUsers(data)
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
 	return (
 		<RatingContainer>
-			<TableContainer 
-				component={Paper}
-				title="Your place is"
-			>
+			<TableContainer component={Paper}>
 				<Table>
 					<TableHead>
 						<TableRow>
@@ -37,6 +44,7 @@ export const UserRating = () => {
 							<TableRow key={user.id}>
 								<TableCell>{user.id}</TableCell>
 								<TableCell>{user.name}</TableCell>
+								<TableCell>{user.score}</TableCell>
 							</TableRow>
 						))}
 					</TableBody>
