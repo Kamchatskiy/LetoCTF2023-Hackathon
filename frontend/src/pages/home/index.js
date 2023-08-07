@@ -37,8 +37,8 @@ export const HomePage = () => {
 				name="Rating"
 				main_icon={<StarIcon color="success"/>}
 				items={[
-					{ label: "Personal", icon: <PersonIcon color="success"/>, link: "/rating/personal.js" },
-					{ label: "Team", icon: <GroupsIcon color="success"/>, link: "/rating/team.js" }
+					{ label: "Personal", icon: <PersonIcon color="success"/>, link: "/rating/personal" },
+					{ label: "Team", icon: <GroupsIcon color="success"/>, link: "/rating/team" }
 				]}
 			/>
 
